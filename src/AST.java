@@ -15,21 +15,21 @@ abstract class AST{
 }
 
 class Start extends AST{
-    String result;
+    String result="";
     public List<DataTypeDef> datatypedefs;
     Start(List<DataTypeDef> datatypedefs){
         this.datatypedefs=datatypedefs;
 
         //Hardcoding java syntax
-        result += "import java.util.*;";
-        result += "abstract class AST{}\n";
+        result += "import java.util.*;\n";
+        result += "abstract class AST{}\n\n";
     }
     public String translate(){
 
         //Going through all the translate methods
-        for (DataTypeDef data : datatypedefs){
+        for (DataTypeDef data : datatypedefs)
             result += data.translate();
-        }
+
             return result;
     }
 }
@@ -47,8 +47,8 @@ class DataTypeDef extends AST{
     }
 
     public String translate(){
-        result += ("abstract class " + dataTypeName +" extends AST{\n");
-        result += ( spaces + "public abstract" + functionHead +";\n};\n");
+        result += ("abstract class " + dataTypeName +" extends AST {\n");
+        result += ( spaces + "public abstract " + functionHead +";\n};\n");
 
         for(Alternative alter : alternatives){
             result += "\nclass ";
@@ -102,7 +102,7 @@ class Alternative extends AST{
             }
         }
 
-        result += " }\n" + spaces + "public" +  expr + code;
+        result += " }\n" + spaces + "public " +  expr + " " + code;
 
         return result;
     }
@@ -121,3 +121,71 @@ class Argument extends AST{
         return result;
     }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

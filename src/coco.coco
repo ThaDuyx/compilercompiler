@@ -1,0 +1,8 @@
+// Example: Expressions Interpreter
+
+DATA expr           WITH ~ String translate() ^
+=
+| DataTypeDef(String dataTypeName, String functionHead, List<Alternative> alternatives)  ~ return "";^
+| Alternative(String constructor, List<Argument> arguments,  String code) ~ return ""; ^
+| Argument (String type, String name) ~ return ""; ^
+;
