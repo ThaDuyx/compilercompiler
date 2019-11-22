@@ -20,12 +20,12 @@ class Start extends AST{
     Start(List<DataTypeDef> datatypedefs){
         this.datatypedefs=datatypedefs;
 
+
+    }
+    public String translate(){
         //Hardcoding java syntax
         result += "import java.util.*;\n";
         result += "abstract class AST{}\n\n";
-    }
-    public String translate(){
-
         //Going through all the translate methods
         for (DataTypeDef data : datatypedefs)
             result += data.translate();
